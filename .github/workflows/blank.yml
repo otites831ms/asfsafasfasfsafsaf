@@ -1,0 +1,27 @@
+name: Xcvdsvwer
+
+on:
+  push:
+    branches:
+      - v1.x
+  workflow_dispatch:
+
+jobs:
+  screenshot-ubuntu:
+    name: Screenshot (Ubuntu)
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        width: [1200, 992, 768, 600, 1200, 992, 768, 600, 1200, 992, 768, 600, 1200, 992, 768, 600, 1200, 992, 768, 600]
+        
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+    - name: Capture Screenshot
+      id: screenshot
+      uses: swinton/screenshot-website@v1.x
+      with:
+        source: https://google.com
+        full-page: true
+        delay: 11
